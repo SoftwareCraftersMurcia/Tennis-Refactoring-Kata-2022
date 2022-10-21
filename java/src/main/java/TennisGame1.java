@@ -1,8 +1,8 @@
 
 public class TennisGame1 implements TennisGame {
     
-    private int m_score1 = 0;
-    private int m_score2 = 0;
+    private int pointsPlayer1 = 0;
+    private int pointsPlayer2 = 0;
     private String player1Name;
     private String player2Name;
 
@@ -13,30 +13,30 @@ public class TennisGame1 implements TennisGame {
 
     public void wonPoint(String playerName) {
         if (playerName.equals("player1")) {
-            m_score1 += 1;
+            pointsPlayer1 += 1;
         }
         else {
-            m_score2 += 1;
+            pointsPlayer2 += 1;
         }
     }
 
     public String getScore() {
         String score = "";
-        if (m_score1==m_score2)
+        if (pointsPlayer1 == pointsPlayer2)
         {
-            score = drawScoreCalculate(m_score1);
+            score = drawScoreCalculate(pointsPlayer1);
         }
-        else if (m_score1>=4 || m_score2>=4)
+        else if (pointsPlayer1 >=4 || pointsPlayer2 >=4)
         {
-            score = winOrAdvantage(m_score1, m_score2);
+            score = winOrAdvantage(pointsPlayer1, pointsPlayer2);
         }
         else
         {
             int tempScore=0;
             for (int i=1; i<3; i++)
             {
-                if (i==1) tempScore = m_score1;
-                else { score+="-"; tempScore = m_score2;}
+                if (i==1) tempScore = pointsPlayer1;
+                else { score+="-"; tempScore = pointsPlayer2;}
                 switch(tempScore)
                 {
                     case 0:
