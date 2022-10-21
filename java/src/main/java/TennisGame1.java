@@ -26,35 +26,41 @@ public class TennisGame1 implements TennisGame {
 
     public String getScore() {
         String score = "";
-        if (pointsPlayer1 == pointsPlayer2)
-        {
+
+        boolean isDraw = pointsPlayer1 == pointsPlayer2;
+
+        if (isDraw) {
             score = drawScoreCalculate(pointsPlayer1);
         }
-        else if (pointsPlayer1 >=4 || pointsPlayer2 >=4)
-        {
-            score = winOrAdvantage(pointsPlayer1, pointsPlayer2);
-        }
-        else
-        {
-            int tempScore=0;
-            for (int i=1; i<3; i++)
+        else {
+            boolean isGamePointPlayer1 = pointsPlayer1 >= 4;
+            boolean isGamePointPlayer2 = pointsPlayer2 >= 4;
+            
+            if (isGamePointPlayer1 || isGamePointPlayer2) {
+                score = winOrAdvantage(pointsPlayer1, pointsPlayer2);
+            }
+            else
             {
-                if (i==1) tempScore = pointsPlayer1;
-                else { score+="-"; tempScore = pointsPlayer2;}
-                switch(tempScore)
+                int tempScore=0;
+                for (int i=1; i<3; i++)
                 {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
+                    if (i==1) tempScore = pointsPlayer1;
+                    else { score+="-"; tempScore = pointsPlayer2;}
+                    switch(tempScore)
+                    {
+                        case 0:
+                            score+="Love";
+                            break;
+                        case 1:
+                            score+="Fifteen";
+                            break;
+                        case 2:
+                            score+="Thirty";
+                            break;
+                        case 3:
+                            score+="Forty";
+                            break;
+                    }
                 }
             }
         }
