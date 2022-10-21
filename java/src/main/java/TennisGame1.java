@@ -24,7 +24,7 @@ public class TennisGame1 implements TennisGame {
         String score = "";
         if (m_score1==m_score2)
         {
-            score = drawScoreCalculate();
+            score = drawScoreCalculate(m_score1);
         }
         else if (m_score1>=4 || m_score2>=4)
         {
@@ -61,8 +61,8 @@ public class TennisGame1 implements TennisGame {
         return score;
     }
 
-    private String drawScoreCalculate() {
-        switch (m_score1) {
+    private String drawScoreCalculate(int score) {
+        switch (score) {
             case 0:
                 return "Love-All";
 
