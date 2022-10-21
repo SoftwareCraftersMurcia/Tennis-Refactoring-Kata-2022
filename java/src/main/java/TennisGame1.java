@@ -31,7 +31,7 @@ public class TennisGame1 implements TennisGame {
         }
 
         if (isGamePoint(pointsPlayer1) || isGamePoint(pointsPlayer2)) {
-            return winOrAdvantage(pointsPlayer1, pointsPlayer2);
+            return gamePointCalculate(pointsPlayer1, pointsPlayer2);
         }
 
         String score = "";
@@ -67,7 +67,7 @@ public class TennisGame1 implements TennisGame {
         return pointsPlayer1 == pointsPlayer2;
     }
 
-    private String winOrAdvantage(int matchScore1, int matchScore2) {
+    private String gamePointCalculate(int matchScore1, int matchScore2) {
         int minusResult = matchScore1 - matchScore2;
         if (minusResult==1) {
             return "Advantage player1";
