@@ -30,10 +30,7 @@ public class TennisGame1 implements TennisGame {
             return drawScoreCalculate(pointsPlayer1);
         }
 
-        boolean isGamePointPlayer1 = pointsPlayer1 >= 4;
-        boolean isGamePointPlayer2 = pointsPlayer2 >= 4;
-
-        if (isGamePointPlayer1 || isGamePointPlayer2) {
+        if (isGamePoint(pointsPlayer1) || isGamePoint(pointsPlayer2)) {
             return winOrAdvantage(pointsPlayer1, pointsPlayer2);
         }
 
@@ -60,6 +57,10 @@ public class TennisGame1 implements TennisGame {
             }
         }
         return score;
+    }
+
+    private boolean isGamePoint(int pointsPlayer) {
+        return pointsPlayer >= 4;
     }
 
     private boolean isDraw() {
