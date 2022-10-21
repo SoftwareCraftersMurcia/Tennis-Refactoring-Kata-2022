@@ -4,6 +4,11 @@ public class TennisGame1 implements TennisGame {
     private int pointsPlayer1;
     private int pointsPlayer2;
 
+    public TennisGame1() {
+        pointsPlayer1 = 0;
+        pointsPlayer2 = 0;
+    }
+
     @Deprecated
     public TennisGame1(String player1Name, String player2Name) {
         pointsPlayer1 = 0;
