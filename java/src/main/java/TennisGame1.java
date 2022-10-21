@@ -25,7 +25,6 @@ public class TennisGame1 implements TennisGame {
     }
 
     public String getScore() {
-
         if (isDraw()) {
             return drawScoreCalculate(pointsPlayer1);
         }
@@ -34,6 +33,10 @@ public class TennisGame1 implements TennisGame {
             return gamePointCalculate(pointsPlayer1, pointsPlayer2);
         }
 
+        return actualScore();
+    }
+
+    private String actualScore() {
         String score = "";
         int tempScore=0;
         for (int i=1; i<3; i++)
