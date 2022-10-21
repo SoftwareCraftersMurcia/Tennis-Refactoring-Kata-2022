@@ -34,33 +34,31 @@ public class TennisGame1 implements TennisGame {
 
         boolean isGamePointPlayer1 = pointsPlayer1 >= 4;
         boolean isGamePointPlayer2 = pointsPlayer2 >= 4;
-        String score = "";
 
         if (isGamePointPlayer1 || isGamePointPlayer2) {
-            score = winOrAdvantage(pointsPlayer1, pointsPlayer2);
+            return winOrAdvantage(pointsPlayer1, pointsPlayer2);
         }
-        else
+
+        String score = "";
+        int tempScore=0;
+        for (int i=1; i<3; i++)
         {
-            int tempScore=0;
-            for (int i=1; i<3; i++)
+            if (i==1) tempScore = pointsPlayer1;
+            else { score+="-"; tempScore = pointsPlayer2;}
+            switch(tempScore)
             {
-                if (i==1) tempScore = pointsPlayer1;
-                else { score+="-"; tempScore = pointsPlayer2;}
-                switch(tempScore)
-                {
-                    case 0:
-                        score+="Love";
-                        break;
-                    case 1:
-                        score+="Fifteen";
-                        break;
-                    case 2:
-                        score+="Thirty";
-                        break;
-                    case 3:
-                        score+="Forty";
-                        break;
-                }
+                case 0:
+                    score+="Love";
+                    break;
+                case 1:
+                    score+="Fifteen";
+                    break;
+                case 2:
+                    score+="Thirty";
+                    break;
+                case 3:
+                    score+="Forty";
+                    break;
             }
         }
         return score;
